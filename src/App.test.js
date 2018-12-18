@@ -7,3 +7,9 @@ it("renders without crashing", () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+it("will fail", () => {
+  const total = 20;
+
+  expect(2).toEqual(total);
+});

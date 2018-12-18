@@ -7,7 +7,7 @@ class App extends PureComponent {
   public render() {
     return (
       <div className="App">
-        <Test text="My text" />
+        <Test text="My text new" />
       </div>
     );
   }
