@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "lint": "tslint --project .",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "precommit": "yarn test"
+    "precommit": "yarn lint"
   },
   "eslintConfig": {
     "extends": "react-app"
