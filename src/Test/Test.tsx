@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 interface ITestProps {
+  /** this dictates what the button should display**/
   text: string;
 }
 
