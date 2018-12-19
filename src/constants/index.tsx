@@ -1,0 +1,2 @@
+export const CHANGE_LOGGED_IN = "CHANGE_LOGGED_IN";
+export type CHANGE_LOGGED_IN = typeof CHANGE_LOGGED_IN;
