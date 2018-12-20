@@ -23,7 +23,7 @@ interface IProtectedAppProps extends RouteProps {
   loggedIn: boolean;
 }
 
-const ProtectedApp: React.ReactType<IProtectedAppProps> = props => {
+const ProtectedApp: React.SFC<IProtectedAppProps> = props => {
   function closeSession(): void {
     props.onChangeLoggedIn(false);
   }
