@@ -1,10 +1,16 @@
 import React, { Dispatch } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, RouteProps } from "react-router-dom";
 import { IAppState } from "../../types/index";
 import * as actions from "../../actions/login";
+import styles from "./login.module.scss";
 
-const Login = (props: any) => {
+interface ILogin extends RouteProps {
+  loggedIn: boolean;
+  onChangeLoggedIn: (newValue: boolean) => void;
+}
+
+const Login: React.SFC<ILogin> = (props: any) => {
   if (props.loggedIn) {
     const { from } = props.location.state || { from: { pathname: "/" } };
     return <Redirect to={from} />;
@@ -12,7 +18,7 @@ const Login = (props: any) => {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1 className={styles.title}>Login</h1>
       <button
         // tslint:disable-next-line:jsx-no-lambda
         onClick={() => {
