@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Page Match Snapshot 1`] = `
+<div>
+  <h1
+    class="title"
+  >
+    Login
+  </h1>
+  <form>
+    <div>
+      <label
+        for="username"
+      >
+        Username
+      </label>
+      <input
+        id="username"
+        name="username"
+        placeholder="username"
+      />
+    </div>
+    <div>
+      <label
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        id="password"
+        name="password"
+        placeholder="password"
+        type="password"
+      />
+    </div>
+    <button
+      type="button"
+    >
+      Click to Login
+    </button>
+  </form>
+</div>
+`;

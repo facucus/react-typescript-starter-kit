@@ -2,7 +2,7 @@ import React, { PureComponent, Dispatch } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Loading from "./components/Loading/Loading";
-import Login from "./components/Login/Login";
+import Login from "./containers/Login";
 import * as actions from "./actions/login";
 import { IAppState } from "./types";
 import ProtectedApp from "./ProtectedApp";

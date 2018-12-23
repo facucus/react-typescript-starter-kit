@@ -7,8 +7,13 @@ exports[`Testing Test component Match Snapshot 1`] = `
   >
     Hola Mundo
   </h1>
-  <p>
-    hola
+  <p
+    class="text"
+  >
+    This is my test
   </p>
+  <button>
+    Click Me
+  </button>
 </div>
 `;
