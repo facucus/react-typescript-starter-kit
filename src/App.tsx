@@ -3,13 +3,11 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import Loading from "./components/Loading/Loading";
 import Login from "./containers/Login";
-import * as actions from "./actions/login";
 import { IAppState } from "./store";
 import ProtectedApp from "./ProtectedApp";
 import { RouteComponentProps } from "react-router";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 interface IAppProps extends RouteComponentProps {
-  onChangeLoggedIn: (value: boolean) => void;
   loggedIn?: boolean;
 }
 
@@ -28,22 +26,10 @@ class App extends PureComponent<IAppProps> {
   }
 }
 
-function mapStateToProps({ login }: IAppState) {
+function mapStateToProps({ session }: IAppState) {
   return {
-    loggedIn: login.loggedIn
+    loggedIn: session.loggedIn
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<actions.IChangeLoggedIn>) {
-  return {
-    onChangeLoggedIn: (newValue: boolean) =>
-      dispatch(actions.changeLogin(newValue))
-  };
-}
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(App)
-);
+export default withRouter(connect(mapStateToProps)(App));

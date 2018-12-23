@@ -1,9 +1,5 @@
 import { Action } from "../actions/users";
-import {
-  FETCHING_USERS,
-  FETCHING_USERS_SUCCESS,
-  FETCHING_USERS_ERROR
-} from "../constants";
+import { UsersActionType } from "../constants";
 
 export interface IUser {
   name: string;
@@ -41,24 +37,12 @@ const users = (
   action: Action
 ): IUsersState => {
   switch (action.type) {
-    case FETCHING_USERS:
-      return {
-        ...state,
-        isFetching: true,
-        error: ""
-      };
-    case FETCHING_USERS_SUCCESS:
-      return {
-        users: action.users,
-        isFetching: false,
-        error: ""
-      };
-    case FETCHING_USERS_ERROR:
-      return {
-        users: [],
-        isFetching: false,
-        error: action.error
-      };
+    case UsersActionType.FETCHING_USERS:
+      return { ...state, isFetching: true, error: "" };
+    case UsersActionType.FETCHING_USERS_SUCCESS:
+      return { users: action.users, isFetching: false, error: "" };
+    case UsersActionType.FETCHING_USERS_ERROR:
+      return { users: [], isFetching: false, error: action.error };
     default:
       return state;
   }

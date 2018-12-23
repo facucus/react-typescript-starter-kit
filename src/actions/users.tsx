@@ -1,22 +1,19 @@
 import { Dispatch } from "redux";
-import {
-  FETCHING_USERS,
-  FETCHING_USERS_SUCCESS,
-  FETCHING_USERS_ERROR
-} from "../constants";
+import { UsersActionType } from "../constants";
 import { IApiServices } from "../api";
+import { IAppState } from "../store";
 
 export interface IFetchingUsersAction {
-  type: FETCHING_USERS;
+  type: UsersActionType.FETCHING_USERS;
 }
 
 export interface IFetchingUsersSuccessAction {
-  type: FETCHING_USERS_SUCCESS;
+  type: UsersActionType.FETCHING_USERS_SUCCESS;
   users: [];
 }
 
 export interface IFetchingUsersErrorAction {
-  type: FETCHING_USERS_ERROR;
+  type: UsersActionType.FETCHING_USERS_ERROR;
   error: string;
 }
 
@@ -26,27 +23,27 @@ export type Action =
   | IFetchingUsersErrorAction;
 
 export const fetchingUsers = (): IFetchingUsersAction => ({
-  type: FETCHING_USERS
+  type: UsersActionType.FETCHING_USERS
 });
 
 export const fetchingUsersSuccess = (
   users: any
 ): IFetchingUsersSuccessAction => ({
-  type: FETCHING_USERS_SUCCESS,
+  type: UsersActionType.FETCHING_USERS_SUCCESS,
   users
 });
 
 export const fetchingUsersError = (
   error: string
 ): IFetchingUsersErrorAction => ({
-  type: FETCHING_USERS_ERROR,
+  type: UsersActionType.FETCHING_USERS_ERROR,
   error
 });
 
 export const fetchUsers = () => {
   return async (
     dispatch: Dispatch,
-    getState: () => any,
+    getState: () => IAppState,
     apiService: IApiServices
   ) => {
     dispatch(fetchingUsers());

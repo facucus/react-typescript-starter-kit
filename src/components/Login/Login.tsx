@@ -7,11 +7,12 @@ import Form from "./Form";
 interface ILoginProps extends RouteComponentProps {
   loggedIn: boolean;
   onChangeLoggedIn: (newValue: boolean) => void;
+  onFetchLogin: (userData: { username: string; password: string }) => void;
 }
 
 class Login extends React.Component<ILoginProps, {}> {
   public submitForm = () => {
-    this.props.onChangeLoggedIn(true);
+    this.props.onFetchLogin({ username: "test", password: "test" });
   };
   public render() {
     if (this.props.loggedIn) {

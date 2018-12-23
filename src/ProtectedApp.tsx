@@ -1,9 +1,10 @@
 import React, { Dispatch } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect, Route, Switch, RouteProps } from "react-router-dom";
-import * as actions from "./actions/login";
+import * as actions from "./actions/session";
 import { IAppState } from "./store";
 import Users from "./containers/Users";
+import { ThunkDispatch } from "redux-thunk";
 
 const Nav = () => (
   <ul>
@@ -19,13 +20,13 @@ const Nav = () => (
 const Friends: React.SFC<{}> = () => <h1>Friends</h1>;
 
 interface IProtectedAppProps extends RouteProps {
-  onChangeLoggedIn: (newValus: boolean) => void;
+  onLogout: () => void;
   loggedIn: boolean;
 }
 
 const ProtectedApp: React.SFC<IProtectedAppProps> = props => {
   function closeSession(): void {
-    props.onChangeLoggedIn(false);
+    props.onLogout();
   }
 
   return (
@@ -41,17 +42,14 @@ const ProtectedApp: React.SFC<IProtectedAppProps> = props => {
   );
 };
 
-function mapStateToProps({ login }: IAppState) {
+function mapStateToProps({ session }: IAppState) {
   return {
-    loggedIn: login.loggedIn
+    loggedIn: session.loggedIn
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<actions.IChangeLoggedIn>) {
-  return {
-    onChangeLoggedIn: (newValue: boolean) =>
-      dispatch(actions.changeLogin(newValue))
-  };
+function mapDispatchToProps(dispatch: ThunkDispatch<any, any, any>) {
+  return { onLogout: () => dispatch(actions.fetchLogout()) };
 }
 
 export default connect(

@@ -27,9 +27,9 @@ class ProtectedRoute extends Route<IProtectedRouteProps> {
   }
 }
 
-function mapStateToProps({ login }: IAppState) {
+function mapStateToProps({ session }: IAppState) {
   return {
-    loggedIn: login.loggedIn
+    loggedIn: session.loggedIn
   };
 }
 
