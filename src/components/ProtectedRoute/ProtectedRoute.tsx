@@ -6,7 +6,7 @@ import {
   RouteComponentProps,
   RouteProps
 } from "react-router-dom";
-import { IAppState } from "../../types/index";
+import { IAppState } from "../../store";
 
 interface IProtectedRouteProps extends RouteProps {
   component:

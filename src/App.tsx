@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Loading from "./components/Loading/Loading";
 import Login from "./containers/Login";
 import * as actions from "./actions/login";
-import { IAppState } from "./types";
+import { IAppState } from "./store";
 import ProtectedApp from "./ProtectedApp";
 import { RouteComponentProps } from "react-router";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";

@@ -1,6 +1,9 @@
 import { CHANGE_LOGGED_IN } from "../constants";
 import { IChangeLoggedIn } from "../actions/login";
-import { ILoginState } from "../types/index";
+
+export interface ILoginState {
+  loggedIn: boolean;
+}
 
 const initalState: ILoginState = {
   loggedIn: false

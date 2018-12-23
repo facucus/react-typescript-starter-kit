@@ -2,21 +2,21 @@ import React, { Dispatch } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect, Route, Switch, RouteProps } from "react-router-dom";
 import * as actions from "./actions/login";
-import { IAppState } from "./types";
+import { IAppState } from "./store";
+import Users from "./containers/Users";
 
 const Nav = () => (
   <ul>
     <Link to="/friends/">
       <li>Friends</li>
     </Link>
-    <Link to="/books/">
-      <li>Books</li>
+    <Link to="/users/">
+      <li>Users</li>
     </Link>
   </ul>
 );
 
 const Friends: React.SFC<{}> = () => <h1>Friends</h1>;
-const Books: React.SFC<{}> = () => <h1>Books</h1>;
 
 interface IProtectedAppProps extends RouteProps {
   onChangeLoggedIn: (newValus: boolean) => void;
@@ -34,7 +34,7 @@ const ProtectedApp: React.SFC<IProtectedAppProps> = props => {
       <button onClick={closeSession}>Logout</button>
       <Switch>
         <Route exact={true} path="/friends/" component={Friends} />
-        <Route exact={true} path="/books/" component={Books} />
+        <Route exact={true} path="/users/" component={Users} />
         <Redirect exact={true} from="/" to="/friends/" />
       </Switch>
     </div>

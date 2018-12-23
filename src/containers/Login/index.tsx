@@ -1,8 +1,9 @@
 import { Dispatch } from "react";
-import { IAppState } from "../../types/index";
+import { IAppState } from "../../store";
 import * as actions from "../../actions/login";
 import { connect } from "react-redux";
 import Login from "../../components/Login/Login";
+
 function mapStateToProps({ login }: IAppState) {
   return {
     loggedIn: login.loggedIn
