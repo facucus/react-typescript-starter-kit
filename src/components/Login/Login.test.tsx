@@ -2,13 +2,27 @@ import "jest-dom/extend-expect";
 import "react-testing-library/cleanup-after-each";
 import "jest-axe/extend-expect";
 import React from "react";
-import { render } from "react-testing-library";
+import { render, fireEvent } from "react-testing-library";
 import Login from "./Login";
+import { Redirect as MockRedirect } from "react-router-dom";
+
+jest.mock("react-router-dom", () => {
+  return {
+    Redirect: jest.fn(() => null)
+  };
+});
+
+afterEach(() => {
+  (MockRedirect as jest.Mock<any>).mockClear();
+});
 
 describe("Login Page", () => {
   const props = {
     loggedIn: false,
-    onChangeLoggedIn: jest.fn()
+    onFetchLogin: jest.fn(),
+    history: {},
+    location: {},
+    match: {}
   };
 
   test("It should have a Login title <h1>", () => {
@@ -17,6 +31,13 @@ describe("Login Page", () => {
     const title = container.querySelector("h1");
 
     expect(title).toHaveTextContent("Login");
+  });
+
+  test("It should redirect", () => {
+    render(<Login {...props} loggedIn={true} />);
+
+    expect(MockRedirect).toHaveBeenCalledTimes(1);
+    expect(MockRedirect).toHaveBeenCalledWith({ to: "/" }, {});
   });
 
   test("Match Snapshot", () => {

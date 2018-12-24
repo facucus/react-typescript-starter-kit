@@ -7,7 +7,8 @@ import { ThunkDispatch } from "redux-thunk";
 
 function mapStateToProps({ session }: IAppState) {
   return {
-    loggedIn: session.loggedIn
+    loggedIn: session.loggedIn,
+    error: session.error
   };
 }
 
