@@ -1,9 +1,6 @@
-import "jest-dom/extend-expect";
 import React from "react";
-import { render, cleanup, fireEvent } from "react-testing-library";
+import { render, fireEvent } from "react-testing-library";
 import Test from "./Test";
-
-afterEach(cleanup);
 
 describe("Testing Test component", () => {
   const defaultProps = {

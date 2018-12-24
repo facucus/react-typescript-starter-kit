@@ -1,5 +1,3 @@
-import "jest-dom/extend-expect";
-import "react-testing-library/cleanup-after-each";
 import { fireEvent, wait } from "react-testing-library";
 import LoginContainer from "./";
 import React from "react";
@@ -43,7 +41,7 @@ describe("Testing the Login Container component", () => {
   });
 
   test("It should login and redirect to Home page", async () => {
-    const { getByText, getByLabelText } = renderWithRedux(
+    const { getByText, getByLabelText, store } = renderWithRedux(
       <LoginContainer {...routeProps} />
     );
 
@@ -55,7 +53,6 @@ describe("Testing the Login Container component", () => {
 
     const submitButton = getByText(/click to login/i);
     fireEvent.click(submitButton);
-
     await wait(() => {
       expect(MockRedirect).toHaveBeenCalledTimes(1);
       expect(MockRedirect).toHaveBeenCalledWith({ to: "/" }, {});

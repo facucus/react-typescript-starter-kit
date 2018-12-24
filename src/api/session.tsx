@@ -17,9 +17,14 @@ const login = (userData: {
 };
 
 const logout = (): Promise<any> => {
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     resolve();
   });
+};
+
+export const mockSession = {
+  login,
+  logout
 };
 
 export default {

@@ -14,8 +14,14 @@ class Users extends React.Component<IUsersProps, {}> {
     this.props.onFetchUsers();
   }
   public render() {
-    console.log("this.props", this.props);
-    return <div>Users</div>;
+    return (
+      <div>
+        <h1>Users</h1>
+        {this.props.users.map((user, index) => (
+          <p key={index}>{user.name}</p>
+        ))}
+      </div>
+    );
   }
 }
 
