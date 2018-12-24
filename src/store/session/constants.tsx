@@ -1,0 +1,6 @@
+export enum SessionActionType {
+  LOGIN_STARTED = "LOGIN_STARTED",
+  LOGIN_SUCCESS = "LOGIN_SUCCESS",
+  LOGIN_ERROR = "LOGIN_ERROR",
+  LOGOUT = "LOGOUT"
+}

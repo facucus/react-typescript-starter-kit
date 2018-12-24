@@ -1,7 +1,7 @@
 import React, { Dispatch } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect, Route, Switch, RouteProps } from "react-router-dom";
-import * as actions from "./actions/session";
+import * as actions from "./store/session/actions";
 import { IAppState } from "./store";
 import Users from "./containers/Users";
 import { ThunkDispatch } from "redux-thunk";

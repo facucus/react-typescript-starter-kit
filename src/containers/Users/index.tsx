@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { IAppState } from "../../store";
-import * as actions from "../../actions/users";
+import * as actions from "../../store/users/actions";
 import Users from "../../components/Users/Users";
 import { ThunkDispatch } from "redux-thunk";
 

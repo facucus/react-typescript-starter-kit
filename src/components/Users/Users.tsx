@@ -1,6 +1,7 @@
 import React from "react";
 import { RouteProps } from "react-router-dom";
-import { IUser } from "../../reducers/users";
+import Loading from "../Loading/Loading";
+import { IUser } from "../../store/users/models";
 
 interface IUsersProps extends RouteProps {
   users: IUser[];
@@ -14,6 +15,9 @@ class Users extends React.Component<IUsersProps, {}> {
     this.props.onFetchUsers();
   }
   public render() {
+    if (this.props.isFetching) {
+      return <Loading />;
+    }
     return (
       <div>
         <h1>Users</h1>

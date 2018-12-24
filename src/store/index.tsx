@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import reducers from "./reducers/index";
-import { ISessionState } from "./reducers/session";
-import { IUsersState } from "./reducers/users";
+import reducers from "./reducers";
+import { ISessionState } from "./session/reducer";
+import { IUsersState } from "./users/reducer";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
-import apiService, { mockApiService } from "./api";
+import apiService, { mockApiService } from "../api";
 export interface IAppState {
   session: ISessionState;
   users: IUsersState;

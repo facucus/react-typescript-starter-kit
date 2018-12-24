@@ -1,5 +1,5 @@
-import { CHANGE_LOGGED_IN, LoginActionType } from "../constants";
-import { Action } from "../actions/session";
+import { SessionActionType } from "./constants";
+import { Action } from "./actions";
 
 export interface ISessionState {
   isFetching: boolean;
@@ -20,19 +20,19 @@ const session = (
   action: Action
 ): ISessionState => {
   switch (action.type) {
-    case LoginActionType.LOGIN_STARTED:
+    case SessionActionType.LOGIN_STARTED:
       return {
         ...state,
         isFetching: true
       };
-    case LoginActionType.LOGIN_SUCCESS:
+    case SessionActionType.LOGIN_SUCCESS:
       return {
         isFetching: false,
         loggedIn: true,
         token: action.token,
         error: ""
       };
-    case LoginActionType.LOGIN_ERROR:
+    case SessionActionType.LOGIN_ERROR:
       return {
         ...state,
         loggedIn: false,
@@ -40,7 +40,7 @@ const session = (
         token: "",
         error: action.error
       };
-    case LoginActionType.LOGOUT:
+    case SessionActionType.LOGOUT:
       return {
         loggedIn: false,
         isFetching: false,

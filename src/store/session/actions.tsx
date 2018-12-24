@@ -1,55 +1,39 @@
 import { Dispatch } from "redux";
-import { CHANGE_LOGGED_IN, LoginActionType } from "../constants";
-import { IApiServices } from "../api";
-import { IAppState } from "../store";
-export interface IChangeLoggedIn {
-  type: CHANGE_LOGGED_IN;
-  newValue: boolean;
-}
+import { SessionActionType } from "./constants";
+import { IApiServices } from "../../api";
+import { IAppState } from "..";
 
 export interface ILoginStarted {
-  type: LoginActionType.LOGIN_STARTED;
+  type: SessionActionType.LOGIN_STARTED;
 }
 
 export interface ILoginSuccess {
-  type: LoginActionType.LOGIN_SUCCESS;
+  type: SessionActionType.LOGIN_SUCCESS;
   token: string;
 }
 
 export interface ILoginError {
-  type: LoginActionType.LOGIN_ERROR;
+  type: SessionActionType.LOGIN_ERROR;
   error: string;
 }
 
 export interface ILogout {
-  type: LoginActionType.LOGOUT;
+  type: SessionActionType.LOGOUT;
 }
 
-export type Action =
-  | IChangeLoggedIn
-  | ILoginStarted
-  | ILoginSuccess
-  | ILoginError
-  | ILogout;
-
-export function changeLogin(newValue: boolean): IChangeLoggedIn {
-  return {
-    type: CHANGE_LOGGED_IN,
-    newValue
-  };
-}
+export type Action = ILoginStarted | ILoginSuccess | ILoginError | ILogout;
 
 export const loginStarted = (): ILoginStarted => ({
-  type: LoginActionType.LOGIN_STARTED
+  type: SessionActionType.LOGIN_STARTED
 });
 
 export const loginSuccess = (token: string): ILoginSuccess => ({
-  type: LoginActionType.LOGIN_SUCCESS,
+  type: SessionActionType.LOGIN_SUCCESS,
   token
 });
 
 export const loginError = (error: string): ILoginError => ({
-  type: LoginActionType.LOGIN_ERROR,
+  type: SessionActionType.LOGIN_ERROR,
   error
 });
 
@@ -74,7 +58,7 @@ export const fetchLogin = (userData: {
 };
 
 export const logoutSuccess = (): ILogout => ({
-  type: LoginActionType.LOGOUT
+  type: SessionActionType.LOGOUT
 });
 
 export const fetchLogout = () => {

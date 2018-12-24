@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
-import { UsersActionType } from "../constants";
-import { IApiServices } from "../api";
-import { IAppState } from "../store";
+import { UsersActionType } from "./constants";
+import { IApiServices } from "../../api";
+import { IAppState } from "../";
 
 export interface IFetchingUsersAction {
   type: UsersActionType.FETCHING_USERS;

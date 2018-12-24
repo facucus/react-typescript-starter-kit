@@ -1,3 +1,4 @@
+import "jest-dom/extend-expect";
 import React from "react";
 import { render, fireEvent } from "react-testing-library";
 import Test from "./Test";
