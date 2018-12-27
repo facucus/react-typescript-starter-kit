@@ -10,7 +10,9 @@ const login = (userData: {
   return new Promise((resolve, reject) => {
     const { username, password } = userData;
     if (username === "test" && password === "test") {
-      resolve({ token: "new-token" });
+      const token = "new-token";
+      localStorage.setItem("API_TOKEN", token);
+      resolve({ token });
     }
     reject(new Error("Invalid credential"));
   });
@@ -18,6 +20,7 @@ const login = (userData: {
 
 const logout = (): Promise<any> => {
   return new Promise(resolve => {
+    localStorage.removeItem("API_TOKEN");
     resolve();
   });
 };
