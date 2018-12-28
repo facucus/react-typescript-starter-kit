@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../ui/Button/Button";
 
 interface IFormProps {
   username?: string;
@@ -52,8 +53,9 @@ class Form extends React.Component<IFormProps> {
             value={this.props.password}
           />
         </div>
-
-        <button type="submit">Click to Login</button>
+        <Button type="submit" onClick={this.handleSubmit}>
+          Click to Login
+        </Button>
       </form>
     );
   }

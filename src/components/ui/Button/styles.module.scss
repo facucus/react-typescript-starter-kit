@@ -1,0 +1,44 @@
+@import "../../../styles/styleguide.scss";
+
+.primary,
+.secondary,
+.danger {
+  @include roboto-regular(14px);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 10px 15px;
+}
+
+.primary {
+  background-color: $black;
+  color: $white;
+
+  &:hover {
+    color: $black;
+    background-color: $white;
+    border: 1px solid $black;
+  }
+}
+
+.secondary {
+  background-color: $orange;
+  color: $black;
+
+  &:hover {
+    background-color: $black;
+    color: $orange;
+  }
+}
+
+.danger {
+  background-color: red;
+  color: $white;
+
+  &:hover {
+    background-color: white;
+    color: $red;
+    border: 1px solid $black;
+  }
+}

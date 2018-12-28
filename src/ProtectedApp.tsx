@@ -5,7 +5,7 @@ import * as actions from "./store/session/actions";
 import { IAppState } from "./store";
 import Users from "./containers/Users";
 import { ThunkDispatch } from "redux-thunk";
-
+import Button from "./components/ui/Button/Button";
 const Nav = () => (
   <ul>
     <Link to="/friends/">
@@ -32,7 +32,7 @@ const ProtectedApp: React.SFC<IProtectedAppProps> = props => {
   return (
     <div>
       <Nav />
-      <button onClick={closeSession}>Logout</button>
+      <Button onClick={closeSession}>Logout</Button>
       <Switch>
         <Route exact={true} path="/friends/" component={Friends} />
         <Route exact={true} path="/users/" component={Users} />

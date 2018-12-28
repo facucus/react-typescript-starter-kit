@@ -36,6 +36,7 @@ exports[`Login Page Match Snapshot 1`] = `
       />
     </div>
     <button
+      class="button primary"
       type="submit"
     >
       Click to Login
