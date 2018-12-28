@@ -20,8 +20,18 @@ type RenderComponent = (props: RouteComponentProps<any>) => React.ReactNode;
 class ProtectedRoute extends Route<IProtectedRouteProps> {
   public render() {
     const { component: Component, ...rest }: IProtectedRouteProps = this.props;
+    const ifPathname = this.props.location && this.props.location.pathname;
     const renderComponent: RenderComponent = props =>
-      rest.loggedIn ? <Component {...props} /> : <Redirect to="/login" />;
+      rest.loggedIn ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: { from: ifPathname ? ifPathname : "/" }
+          }}
+        />
+      );
 
     return <Route {...rest} render={renderComponent} />;
   }

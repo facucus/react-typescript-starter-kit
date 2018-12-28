@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { text } from "@storybook/addon-knobs/react";
 import { action } from "@storybook/addon-actions";
-import Button from "./Button";
+import Button from ".";
 
 storiesOf("UI/Button", module)
   .add("primary", () => (

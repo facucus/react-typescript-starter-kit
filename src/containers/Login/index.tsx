@@ -1,7 +1,7 @@
 import { IAppState } from "../../store";
 import * as actions from "../../store/session/actions";
 import { connect } from "react-redux";
-import Login from "../../components/Login/Login";
+import Login from "../../components/features/Login";
 import { ThunkDispatch } from "redux-thunk";
 
 function mapStateToProps({ session }: IAppState) {

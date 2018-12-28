@@ -33,10 +33,10 @@ class Login extends React.Component<ILoginProps, ILoginState> {
   public render() {
     if (this.props.loggedIn) {
       const { from } = this.props.location.state || { from: { pathname: "/" } };
-      return <Redirect to={"/"} />;
+      return <Redirect to={from} />;
     }
     return (
-      <div>
+      <div className={styles.container}>
         <h1 className={styles.title}>Login</h1>
         <Form
           password={this.state.password}

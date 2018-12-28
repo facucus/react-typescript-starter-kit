@@ -1,0 +1,9 @@
+@import "../../../../styles/styleguide.scss";
+
+.container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: space-between;
+}

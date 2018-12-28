@@ -2,7 +2,7 @@ import { fireEvent, wait } from "react-testing-library";
 import LoginContainer from "./";
 import React from "react";
 import { Redirect as MockRedirect } from "react-router-dom";
-import { renderWithRedux } from "../../Utils/renderWithRedux";
+import { renderWithRedux } from "../../utils/renderWithRedux";
 
 jest.mock("react-router-dom", () => {
   return {
@@ -55,7 +55,7 @@ describe("Testing the Login Container component", () => {
     fireEvent.click(submitButton);
     await wait(() => {
       expect(MockRedirect).toHaveBeenCalledTimes(1);
-      expect(MockRedirect).toHaveBeenCalledWith({ to: "/" }, {});
+      expect(MockRedirect).toHaveBeenCalledWith({ to: { pathname: "/" } }, {});
     });
   });
 });

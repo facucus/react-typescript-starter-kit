@@ -1,8 +1,3 @@
-export interface IApiLogin {
-  login: (userData: { username: string; password: string }) => Promise<any>;
-  logout: () => Promise<any>;
-}
-
 const login = (userData: {
   username: string;
   password: string;

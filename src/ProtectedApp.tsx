@@ -5,7 +5,7 @@ import * as actions from "./store/session/actions";
 import { IAppState } from "./store";
 import Users from "./containers/Users";
 import { ThunkDispatch } from "redux-thunk";
-import Button from "./components/ui/Button/Button";
+import Button from "./components/ui/Button";
 const Nav = () => (
   <ul>
     <Link to="/friends/">

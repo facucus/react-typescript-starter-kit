@@ -1,0 +1,11 @@
+@import "../../../styles/styleguide.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.title {
+  color: red;
+}

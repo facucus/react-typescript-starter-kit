@@ -1,12 +1,12 @@
-import React, { PureComponent, Dispatch } from "react";
+import React, { PureComponent } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import Loading from "./components/Loading/Loading";
+import Loading from "./components/ui/Loading";
 import Login from "./containers/Login";
 import { IAppState } from "./store";
 import ProtectedApp from "./ProtectedApp";
 import { RouteComponentProps } from "react-router";
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "./components/hoc/ProtectedRoute";
 interface IAppProps extends RouteComponentProps {
   loggedIn?: boolean;
 }

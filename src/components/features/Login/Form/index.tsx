@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "../../ui/Button/Button";
+import Button from "../../../ui/Button";
+import styles from "./form.module.scss";
 
 interface IFormProps {
   username?: string;
@@ -30,7 +31,7 @@ class Form extends React.Component<IFormProps> {
 
   public render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className={styles.container}>
         <div>
           <label htmlFor="username">Username</label>
           <input

@@ -1,7 +1,7 @@
 import "jest-axe/extend-expect";
 import React from "react";
 import { render, fireEvent } from "react-testing-library";
-import Login from "./Login";
+import Login from ".";
 import { Redirect as MockRedirect } from "react-router-dom";
 
 jest.mock("react-router-dom", () => {
@@ -27,7 +27,6 @@ describe("Login Page", () => {
     const { container } = render(<Login {...props} />);
 
     const title = container.querySelector("h1");
-
     expect(title).toHaveTextContent("Login");
   });
 
@@ -35,7 +34,7 @@ describe("Login Page", () => {
     render(<Login {...props} loggedIn={true} />);
 
     expect(MockRedirect).toHaveBeenCalledTimes(1);
-    expect(MockRedirect).toHaveBeenCalledWith({ to: "/" }, {});
+    expect(MockRedirect).toHaveBeenCalledWith({ to: { pathname: "/" } }, {});
   });
 
   test("Match Snapshot", () => {

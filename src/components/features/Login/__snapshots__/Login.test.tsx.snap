@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Login Page Match Snapshot 1`] = `
-<div>
+<div
+  class="container"
+>
   <h1
     class="title"
   >
     Login
   </h1>
-  <form>
+  <form
+    class="container"
+  >
     <div>
       <label
         for="username"

@@ -1,7 +1,7 @@
 import React from "react";
 import { RouteProps } from "react-router-dom";
-import Loading from "../Loading/Loading";
-import { IUser } from "../../store/users/models";
+import Loading from "../../ui/Loading";
+import { IUser } from "../../../store/users/models";
 
 interface IUsersProps extends RouteProps {
   users: IUser[];

@@ -1,8 +1,8 @@
 import React from "react";
-import { renderWithRedux } from "../../Utils/renderWithRedux";
+import { renderWithRedux } from "../../utils/renderWithRedux";
 import UsersContainer from "./";
 import { wait } from "react-testing-library";
-import { fakeGetUsersResponse } from "../../api/users";
+import { fakeGetUsersResponse } from "../../../src/mockApi/users";
 
 describe("Testing the users route", () => {
   const routeProps = { match: {}, history: {}, location: {} };
