@@ -3,7 +3,7 @@ import { Redirect, RouteComponentProps } from "react-router-dom";
 
 import styles from "./login.module.scss";
 import Form from "./Form";
-
+import FacebookLogin from "./FacebookLogin";
 interface ILoginProps extends RouteComponentProps {
   loggedIn: boolean;
   error?: string;
@@ -44,6 +44,8 @@ class Login extends React.Component<ILoginProps, ILoginState> {
           onChangeInput={this.onChangeInput}
           onClick={this.submitForm}
         />
+
+        <FacebookLogin />
         {this.props.error && (
           <p data-testid="login-error-msg">{this.props.error}</p>
         )}

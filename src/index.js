@@ -8,7 +8,7 @@ import { store } from "./store/index";
 
 import "./styles/common.scss";
 import "normalize.css/normalize.css";
-
+console.log(process.env);
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
